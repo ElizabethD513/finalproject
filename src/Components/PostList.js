@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState} from "react";
 import {Card, Container, Row, Col} from 'react-bootstrap'
-import { getAllBlogs} from '../crud';
+import { getAllBlogs, newBlog} from '../crud';
 
 
 function PostList(props) {
@@ -49,6 +49,23 @@ function PostList(props) {
 	}];
 
     const [blogs, setBlogs] = useState([])
+
+    // function resetForm(){   
+    //     setEditableBlog({
+    //       petName:'',
+    //       petType:'',
+    //       arrivalDate:'',
+    //       id:''
+    //     })
+    //   }
+    
+      function createBlogPost(blogDataFromForm){      //petDataFromForm is being passed to the createPet function
+        newBlog(blogDataFromForm).then(blogDataFromServer => {   //petDataFromForm is being passed to newPet which creates a new pet on the server .then is called when the promise is fulfilled
+         // resetForm()                                       //when the newPet function is successful then the form is reset
+          setBlogs([...blogs, blogDataFromServer])             //updates the pets state with an array containing the new pet data from the server and the existing pets data
+        })
+        
+      }
 
     useEffect(() => {
         getAllBlogs().then(blogs => {
