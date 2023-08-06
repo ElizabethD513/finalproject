@@ -6,8 +6,7 @@ export default function Comment(props) {
         <Card className="mb-3">
             <Card.Body> 
                 <Card.Text>
-                    {props.comment.comment}<br/>
-                    Rating {props.comment.rating}
+                    {props.comment.comment}
                 </Card.Text>
             </Card.Body> 
         </Card>

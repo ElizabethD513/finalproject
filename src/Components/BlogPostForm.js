@@ -88,11 +88,10 @@ export default function BlogPostForm(props) {
                      <ReactQuill className={isQuillValid ? "" : "is-invalid"} theme="snow" required value={blogContent} onChange={setBlogContent} />
                      <Form.Control.Feedback type="invalid">Content Is Required</Form.Control.Feedback>
                 </Form.Group>
-
-        
-                <Button className="me-1" variant="primary" type="submit">Submit</Button>
-                {blogPost.id ? <Button onClick={blogDeletion} variant="danger">Delete</Button> : ""}
-                
+                <div className="d-flex">
+                    <Button className="me-1" variant="primary" type="submit">Save Post</Button>
+                    {blogPost.id ? <><Button variant="info" href={'/singlePost/'+ blogPost.id}>View Post</Button> <Button className="ms-auto" onClick={blogDeletion} variant="danger">Delete</Button></> : ""}
+                </div>
             </Form>
             <MyModal title="Success!" content={(blogPost.blogTitle || "Blog")+" has been " + action} show={showModal} handleClose={handleClose}/>
         </div>

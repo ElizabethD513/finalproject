@@ -4,7 +4,8 @@ import HomePage from "./Components/HomePage";
 import NewPost from "./Components/NewPost";
 import SinglePost from "./Components/SinglePost";
 import React from "react";
-import "./app.css"
+import "./app.css";
+import HoroscopePage from "./Components/HoroscopePage"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Route path="/newpost" element={<NewPost />} />
               <Route path="/editpost/:blogId" element={<NewPost />} />
               <Route path="/singlePost/:blogId" element={<SinglePost />} />
+              <Route path="/horoscope" element={<HoroscopePage />} />
           </Routes>
       </Router>
   );

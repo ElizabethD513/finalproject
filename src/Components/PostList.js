@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState} from "react";
-import {Card, Row, Col} from 'react-bootstrap'
+import { Row, Col} from 'react-bootstrap'
 import { getAllBlogs} from '../blogapi';
+import PostPreviewCard from "./PostPreviewCard";
 
 function PostList(props) {
     
@@ -47,18 +48,7 @@ function PostList(props) {
             <Row>
               {blogs.map((blogPost, index) => (
                 <Col sm={4} key={blogPost.id}>
-                  <Card className="mb-3">
-                  <Card.Img variant="top" src={"/images/" + imageArray[index % imageArray.length]}/>
-                    <Card.Body>
-                        <Card.Title>
-                            {blogPost.blogTitle}
-                        </Card.Title>
-                        <Card.Text>
-                            <span className="snippet">{blogPost.blogContent}</span>
-                          <a href={"/singlePost/" + blogPost.id}>read more</a>
-                        </Card.Text>
-                    </Card.Body>
-                  </Card>
+                  <PostPreviewCard blogPost={blogPost} image={"/images/" + imageArray[index % imageArray.length]}/>
                 </Col>
               ))}
             </Row>
