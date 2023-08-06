@@ -1,4 +1,4 @@
-* {
+/* * {
     padding: 0;
     margin: 0;
 }
@@ -34,6 +34,39 @@ a {
 }
 
 a:hover {
-    background-color: rgb(12, 0, 66);
-    color: rgb(255, 255, 255);
+    .background-color: rgb(12, 0, 66);
+    color: rgb(255, 255, 255); }*/
+
+#homeBackgroundImage {
+    height: 500px;
+    background-image: url("/public/images/skyhomepage.jpg");
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:antiquewhite;
+}
+#homeBackgroundImage h1 {
+    font-size: 70px;
+    text-align: center;
+}
+#homeBackgroundImage h3 {
+    font-size: 40px;
+    text-align: center;
+}
+.snippet {
+    height: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* max-width: 200px; */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.latest-posts .card-img-top {
+    max-height: 200px;
+}
+.ql-editor {
+    height:500px;
 }

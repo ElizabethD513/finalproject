@@ -1,3 +1,5 @@
+
+
 const BLOG_ENDPOINT = "https://64c54eeac853c26efadab4a3.mockapi.io/api/v1/blogposts"
 
 
@@ -7,8 +9,8 @@ export function getAllBlogs(){       //https://github.com/mockapi-io/docs/wiki/C
       method: 'GET',
       headers: {'content-type':'application/json'},
     }).then(res => {  //Response object
-      if (res.ok) {       
-        return res.json();   //receiving a JSON response. 
+      if (res.ok) {
+        return res.json();   //receiving a JSON response.
       }
     // handle error
     }).then(blogData => {
@@ -16,6 +18,23 @@ export function getAllBlogs(){       //https://github.com/mockapi-io/docs/wiki/C
   // Do something with the list of tasks
     }).catch(error => {
   // handle error
+    })
+}
+
+export function getSingleBlog(blogId){       //https://github.com/mockapi-io/docs/wiki/Code-examples
+    return fetch(BLOG_ENDPOINT + "/"+ blogId, {   //fetching data from the Mock Api URL to get all blogs in the form of a JSON response
+        method: 'GET',
+        headers: {'content-type':'application/json'},
+    }).then(res => {  //Response object
+        if (res.ok) {
+            return res.json();   //receiving a JSON response.
+        }
+        // handle error
+    }).then(blogData => {
+        return blogData
+        // Do something with the list of tasks
+    }).catch(error => {
+        // handle error
     })
 }
 
@@ -35,7 +54,7 @@ export function removeBlog(blogId){       //sending a request to delete data fro
 export function newBlog(blogData){    //sending data to the server to create a new blog
   return fetch(BLOG_ENDPOINT , {
     method: 'POST',
-    headers: {'content-type':'application/json'},
+    headers: {'content-type':'application/json','x-api-key': ''},
     // Send your data in the request body as JSON
     body: JSON.stringify(blogData)
   }).then(res => {
@@ -77,8 +96,8 @@ export function getAllComments(blogId){       //https://github.com/mockapi-io/do
     method: 'GET',
     headers: {'content-type':'application/json'},
   }).then(res => {  //Response object
-    if (res.ok) {       
-      return res.json();   //receiving a JSON response. 
+    if (res.ok) {
+      return res.json();   //receiving a JSON response.
     }
   // handle error
   }).then(commentsData => {
@@ -107,7 +126,7 @@ return fetch(BLOG_ENDPOINT + "/" + blogId + "/Comments", {
   method: 'POST',
   headers: {'content-type':'application/json'},
   // Send your data in the request body as JSON
-  body: JSON.stringify(commentData)    
+  body: JSON.stringify(commentData)
 }).then(res => {
 
   if (res.ok) {

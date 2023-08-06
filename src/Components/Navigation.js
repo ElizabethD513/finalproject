@@ -5,7 +5,7 @@ import {Nav, Navbar, Container} from 'react-bootstrap'
 
 function Navigation() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>Astrology Blog</Navbar.Brand>
@@ -17,10 +17,7 @@ function Navigation() {
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/newpost">
-                <Nav.Link>Create Post</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/singlePost">
-                <Nav.Link>Single Post</Nav.Link>
+                <Nav.Link>New Post</Nav.Link>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>

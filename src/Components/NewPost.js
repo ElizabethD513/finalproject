@@ -1,11 +1,14 @@
 import React from 'react'
-import BlogPostForm from "./BlogPostForm"
+import { useParams } from 'react-router-dom';
+import BlogPostForm from "./BlogPostForm";
+import { Container } from 'react-bootstrap'
+
 
 export default function NewPost() {
+    let { blogId } = useParams();  //useParams will return an object containing all the parameters in the url
     return (
-        <div>
-            <h1>New Post</h1>
-            <BlogPostForm/>
-        </div>
+        <Container>
+            <BlogPostForm blogId={blogId}/>
+        </Container>
     )
 }
